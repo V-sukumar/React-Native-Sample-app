@@ -1,41 +1,27 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// In App.js in a new project
 
-export default function App() {
-  const onclick=()=>{
-    alert("Hello! How are you?")
-  }
+import * as React from 'react';
+import { View, Text, StatusBar, Alert } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Login from './screens/Login';
+import Signup from './screens/Signup';
+import { WebView } from 'react-native-webview';
+const Stack = createNativeStackNavigator();
+import { useEffect} from 'react';
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Click on the below Button</Text>
-      <StatusBar style="auto" />
-      <View style={styles.Subcontainer}>
-        <Text style={styles.Child} onPress={onclick}>Click me</Text>
-      </View>
-    </View>
+    // <NavigationContainer>
+    //   <Stack.Navigator initialRouteName='login' screenOptions={{headerShown:false}}>
+    //     <Stack.Screen name="login" component={Login} />
+    //     <Stack.Screen name="signup" component={Signup} />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+    
+      
+      <WebView source={{uri:"https://infogreen.in" }}/>
+    
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#A5D6A7',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  Subcontainer: {
-    backgroundColor: '#A5D6A7',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop:50,
-    
-    
-  },
-  Child:{
-    width:'auto',
-    color:'white',
-    backgroundColor:'red',
-    borderRadius:10,
-    padding:10
-  }
-});
+export default App;
